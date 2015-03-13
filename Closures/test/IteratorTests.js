@@ -4,7 +4,8 @@ TestCase("IteratorTest", {
   "test next should return first item":
   function () {
     var collection = [1, 2, 3, 4, 5];
-    assertSame(collection[0], tddjs.iterator.next());
+    var iterator = tddjs.iterator(collection);
+    assertSame(collection[0], iterator.next());
     assertTrue(iterator.hasNext());
   },
   "test hasNext should be false after last item":
