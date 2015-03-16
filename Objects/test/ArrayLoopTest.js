@@ -12,7 +12,9 @@ TestCase("ArrayLoopTest", {
 		var array = [ 1, 2, 3, 4, 5, 6 ];
 		var result = [];
 		for ( var i in array) {
-			result.push(array[i]);
+			if (array.hasOwnProperty(i)) {
+				result.push(array[i]); // fixing the global extension conflict problem
+			}
 		}
 		assertEquals("123456", result.join(""));
 	}
