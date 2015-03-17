@@ -1,4 +1,4 @@
-/* global tddjs */
+/* global iterator, tddjs */
 
 TestCase(
 		"PropertyEnumerationTest",
@@ -47,6 +47,8 @@ TestCase(
 				};
 
 				var result = [];
+				var it = tddjs.javastyle.iterator(collection);
+				var tddjs = tddjs;
 
 				tddjs.each(object, function(property) {
 					result.push(property);
@@ -55,7 +57,7 @@ TestCase(
 				assertEquals(7, result.length);
 			},
 
-			"test should enumerate shadowed function properties using each" : function() {
+			"ignore should enumerate shadowed function properties using each" : function() {
 				var object = function() {
 				};
 
