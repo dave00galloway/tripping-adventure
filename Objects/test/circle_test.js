@@ -16,5 +16,15 @@ TestCase("CircleTest", {
 		assertTrue(this.circ2 instanceof Object);
 		assertEquals(Circle, this.circ.constructor);
 		assertEquals(Object, this.circ2.constructor);
+	},
+	"test should create another object of same kind" : function() {
+		var circle = new Circle(6);
+		var circle2 = new circle.constructor(9);
+		assertEquals(circle.constructor, circle2.constructor);
+		assertTrue(circle2 instanceof Circle);
+	},
+	"test should inherit properties from Circle.prototype" : function() {
+		var circle = new Circle(6);
+		assertEquals(12, circle.diameter());
 	}
 });
