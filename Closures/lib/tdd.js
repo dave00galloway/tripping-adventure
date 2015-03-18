@@ -18,6 +18,9 @@ var tddjs = (function() {
 	return {
 		namespace : namespace
 	};
+//	return {
+//		namespace : namespace
+//	};	
 }());
 
 tddjs.isOwnProperty = (function() {
