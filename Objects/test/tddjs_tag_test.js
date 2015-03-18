@@ -9,5 +9,5 @@ TestCase("CanAccessUserDefinedPropertiesAndMethodsOfTddjs", {
 	},
 	"test can access hello method defined inside tddjs body" : function() {
 		assertEquals("hello world", tddjs.hello("world"));
-	}
+	}	
 });

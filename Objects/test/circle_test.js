@@ -1,12 +1,20 @@
 TestCase("CircleTest", {
-  "test inspect objects": function () {
-//    var circ = new Circle(6);
-//    var circ2 = { radius: 6 };
-//    assertTrue(circ instanceof Object);
-//    assertTrue(circ instanceof Circle);
-//    assertTrue(circ2 instanceof Object);
-//    assertEquals(Circle, circ.constructor);
-//    assertEquals(Object, circ2.constructor);
-    assertEquals(5,circ.radius);
-  }
-￼￼￼});
+	setUp : function() {
+		this.circ = new Circle(6);
+		this.circ2 = {
+			radius : 6
+		};
+	},
+	tearDown : function() {
+		delete this.circ;
+		delete this.circ2;
+	},
+	"test inspect objects" : function() {
+
+		assertTrue(this.circ instanceof Object);
+		assertTrue(this.circ instanceof Circle);
+		assertTrue(this.circ2 instanceof Object);
+		assertEquals(Circle, this.circ.constructor);
+		assertEquals(Object, this.circ2.constructor);
+	}
+});
