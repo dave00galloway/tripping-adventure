@@ -8,20 +8,21 @@ var tddjs = (function() {
 			if (typeof object[levels[i]] == "undefined") {
 				object[levels[i]] = {};
 			}
-
 			object = object[levels[i]];
 		}
-
 		return object;
 	}
-
+	function hello(name){return "hello " + name;}
 	return {
 		namespace : namespace
 	};
-//	return {
-//		namespace : namespace
-//	};	
 }());
+
+tddjs.tag = "random string";
+
+tddjs.hi = function hi () {
+	return "hi";
+};
 
 tddjs.isOwnProperty = (function() {
 	var hasOwn = Object.prototype.hasOwnProperty;
