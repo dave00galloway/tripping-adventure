@@ -32,5 +32,11 @@ TestCase("CircleTest", {
 		}
 		Circle.prototype = {};
 		assertEquals(Object, new Circle().constructor);
+	},
+	"test calling prototype without 'new' returns undefined" : function() {
+		var circle = Circle(6);
+		assertEquals("undefined", typeof circle);
+		// Oops! Defined property on global object
+		assertEquals(6, radius);
 	}
 });
