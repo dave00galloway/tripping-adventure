@@ -1,8 +1,14 @@
 //using inherit abstraction
 function Sphere(radius) {
-	this.radius = radius;
+	//this.radius = radius;
+	//call the circle constructor to set the prototype and constructor chains properly
+	Circle.call(this, radius); //emulate super =from Java
 }
 Sphere.inherit(Circle);
+
+Sphere.prototype.area = function() {
+	return 4 * Circle.prototype.area.call(this);
+};
 
 //clunky inheritance
 //function Sphere(radius) {
