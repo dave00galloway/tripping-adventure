@@ -1,12 +1,24 @@
 function Circle(radius) {
 	this.radius = radius;
 }
-
-Circle.prototype = {
-	constructor : Circle,
-	diameter : function() {
+// avoid missing constructor by using extensions
+(function(p) {
+	p.diameter = function() {
 		return this.radius * 2;
-	}
+	};
+	p.circumference = function() {
+		return this.diameter() * Math.PI;
+	};
+	p.area = function() {
+		return this.radius * this.radius * Math.PI;
+	};
+}(Circle.prototype));
+
+//Circle.prototype = {
+//	constructor : Circle,
+//	diameter : function() {
+//		return this.radius * 2;
+//	}
 // ,
 // circumference : function() {
 // return this.diameter() * Math.PI;
@@ -14,4 +26,4 @@ Circle.prototype = {
 // area : function() {
 // return this.radius * this.radius * Math.PI;
 // }
-};
+//};
