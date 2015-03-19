@@ -7,7 +7,8 @@ function Sphere(radius) {
 Sphere.inherit(Circle);
 
 Sphere.prototype.area = function() {
-	return 4 * Circle.prototype.area.call(this);
+	//return 4 * Circle.prototype.area.call(this);
+	return 4 * this._super.area.call(this); // equivalent directly calling the super class
 };
 
 //clunky inheritance
