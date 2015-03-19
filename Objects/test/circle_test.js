@@ -26,5 +26,11 @@ TestCase("CircleTest", {
 	"test should inherit properties from Circle.prototype" : function() {
 		var circle = new Circle(6);
 		assertEquals(12, circle.diameter());
+	},
+	"test constructor is Object when prototype is overridden" : function() {
+		function Circle() {
+		}
+		Circle.prototype = {};
+		assertEquals(Object, new Circle().constructor);
 	}
 });
