@@ -14,8 +14,7 @@ TestCase("Functional SphereTests", {
 		assertEquals(12, this.ball.diameter());
 	},
 	"test should calculate sphere area" : function() {
-            var ballArea = this.ball.area();
-		assertEquals(113, Math.round(ballArea));
+		assertEquals(452, Math.round(this.ball.area()));
 	}
 //
 

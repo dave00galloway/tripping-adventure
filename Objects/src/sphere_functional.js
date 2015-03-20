@@ -2,8 +2,7 @@ function sphere(radius) {
 	var sphereObj = circle(radius);
 	var circleArea = sphereObj.area;
 	function area() {
-                var a = 4 * circleArea.call(this); 
-		return a;
+		return 4 * circleArea.call(this);
 	}
 	sphereObj.area = area;
 	return sphereObj;

@@ -24,7 +24,7 @@ TestCase(
 				assertEquals(Object, this.circ2.constructor);
 			},
 			"ignore test should create another object of same kind" : function() {
-				
+
 				var circle2 = new this.circ.constructor(9);
 				assertEquals(this.circ.constructor, circle2.constructor);
 				assertTrue(circle2 instanceof circle);
@@ -47,9 +47,9 @@ TestCase(
 			},
 			"test a functional and non functional circle give same results" : function() {
 				var classicCircle = new Circle(6); // a small benefit of
-													// constructors is that you
-													// get limited intellisense
-													// on object creation
+				// constructors is that you
+				// get limited intellisense
+				// on object creation
 				assertEquals(classicCircle.diameter(), this.circ.diameter());
 			}
 		});

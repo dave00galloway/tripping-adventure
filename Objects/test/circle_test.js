@@ -37,5 +37,8 @@ TestCase(
 				assertEquals("undefined", typeof this.circ);
 				// Oops! Defined property on global object
 				assertEquals(6, radius);
+			},
+			"test a = pi R Squared" : function() {
+				assertEquals(113, Math.round(this.circ.area()));
 			}
 		});
