@@ -2,6 +2,8 @@ TestCase(
 		"Functional CircleTest",
 		{
 			setUp : function() {
+
+				//Because circle is no longer a constructor, its name is no longer capitalized. To use this new function we omit the new keyword 
 				this.circ = circle(6);
 				this.circ2 = {
 					radius : 6
