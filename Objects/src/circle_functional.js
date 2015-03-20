@@ -14,10 +14,14 @@ function circle(radius) {
 	function circumference() {
 		return diameter() * Math.PI;
 	}
+        function area() {
+                var a = radius * radius * Math.PI;
+		return a;
+	}
 	return {
 		radius : getSetRadius,
 		diameter : diameter,
-		// area : area,
+                area : area,
 		circumference : circumference
 	};
 }
