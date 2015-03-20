@@ -1,8 +1,8 @@
 TestCase(
-		"CircleTest",
+		"Functional CircleTest",
 		{
 			setUp : function() {
-				this.circ = new Circle(6);
+				this.circ = circle(6);
 				this.circ2 = {
 					radius : 6
 				};
@@ -14,18 +14,20 @@ TestCase(
 			"test inspect objects" : function() {
 
 				assertTrue(this.circ instanceof Object);
-				assertTrue(this.circ instanceof Circle);
+				assertFalse(this.circ instanceof circle);
 				assertTrue(this.circ2 instanceof Object);
-				assertEquals(Circle, this.circ.constructor);
+				//assertEquals(Object(), this.circ.constructor);
 				assertEquals(Object, this.circ2.constructor);
 			},
 			"test should create another object of same kind" : function() {
-				this.circ2 = new this.circ.constructor(9);
-				assertEquals(this.circ.constructor, this.circ2.constructor);
-				assertTrue(this.circ2 instanceof Circle);
+				var circle = new Circle(6);
+				var circle2 = new circle.constructor(9);
+				assertEquals(circle.constructor, circle2.constructor);
+				assertTrue(circle2 instanceof Circle);
 			},
 			"test should inherit properties from Circle.prototype" : function() {
-				assertEquals(12, this.circ.diameter());
+				var circle = new Circle(6);
+				assertEquals(12, circle.diameter());
 			},
 			"test constructor is Object when prototype is overridden" : function() {
 				function Circle() {
@@ -33,9 +35,12 @@ TestCase(
 				Circle.prototype = {};
 				assertEquals(Object, new Circle().constructor);
 			},
-			"ignore test calling prototype without 'new' returns undefined as using guard clause means a circle is returned" : function() {
-				assertEquals("undefined", typeof this.circ);
-				// Oops! Defined property on global object
-				assertEquals(6, radius);
-			}
+			"test should create circle object with function":
+				function () {
+
+				  assertEquals(6, this.circ.radius());
+				  this.circ.radius(12);
+				  assertEquals(12, this.circ.radius());
+				  assertEquals(24, this.circ.diameter());
+				}
 		});
