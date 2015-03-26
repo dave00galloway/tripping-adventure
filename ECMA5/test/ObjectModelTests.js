@@ -1,3 +1,4 @@
+"use strict";
 TestCase("ES5ObjectTest", {
 	"test defineProperty" : function() {
 		var circle = {};
@@ -15,7 +16,7 @@ TestCase("ES5ObjectTest", {
 		var descriptor = Object.getOwnPropertyDescriptor(circle, "radius");
 		descriptor.configurable = false;
 		Object.defineProperty(circle, "radius", descriptor);
-		delete circle.radius;
+		// delete circle.radius; //type error in strict mode
 		// Non-configurable radius cannot be deleted
 		assertEquals(3, circle.radius);
 	},
@@ -40,7 +41,7 @@ TestCase("ES5ObjectTest", {
 			randomProp : "helicopter"
 		};
 		Object.freeze(object);
-		object.randomProp = "2";
+		// object.randomProp = "2"; //type error in strict mode
 		assertEquals(object.randomProp, "helicopter");
 	},
 	"test property accessors" : function() {

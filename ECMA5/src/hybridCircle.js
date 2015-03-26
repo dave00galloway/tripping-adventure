@@ -1,10 +1,13 @@
+"use strict";
 function HybridCircle(radius) {
 	var _radius;
-	var circle = Object.create(HybridCircle.prototype, {
+
+	var circle = Object.create(Circle.prototype, {
 		radius : {
 			configurable : false,
 			enumerable : true,
 			set : function(r) {
+
 				if (typeof r != "number" || r <= 0) {
 					throw new TypeError("radius should be > 0");
 				}
@@ -18,7 +21,7 @@ function HybridCircle(radius) {
 	circle.radius = radius;
 	return circle;
 }
-HybridCircle.prototype = Object.create(HybridCircle.prototype, {
+Circle.prototype = Object.create(Circle.prototype, {
 	diameter : {
 		get : function() {
 			return this.radius * 2;
@@ -28,4 +31,4 @@ HybridCircle.prototype = Object.create(HybridCircle.prototype, {
 	},
 	circumference : { /* ... */},
 	area : { /* ... */}
-};
+});
