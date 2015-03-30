@@ -1,6 +1,7 @@
 /*jslint indent: 2, browser: true*/
 /*globals TestCase, tddjs, assertException, assertObject, assertClassName, assertNoMatch, assertNoException, assertSame*/
 (function () {
+	//debugger;
   var tabController = tddjs.ui.tabController;
 
   // All test cases can share this setUp
