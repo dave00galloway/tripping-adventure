@@ -1,5 +1,5 @@
 /*jslint indent: 2, onevar: false, plusplus: false, eqeqeq: false, nomen: false*/
-var tddjs = (function() {
+var tddjs = (function namespace() {
 	function namespace(string) {
 		var object = this;
 		var levels = string.split(".");
@@ -52,6 +52,38 @@ tddjs.hi = function hi() {
 
 	dom.addClassName = addClassName;
 	dom.removeClassName = removeClassName;
+}());
+
+(function() {
+	var dom = tddjs.namespace("dom");
+	var _addEventHandler;
+	if (!Function.prototype.call) {
+		return;
+	}
+	function normalizeEvent(event) {
+		event.preventDefault = function() {
+			event.returnValue = false;
+		};
+		event.target = event.srcElement;
+		// More normalization
+		return event;
+	}
+	if (tddjs.isHostMethod(document, "addEventListener")) {
+		_addEventHandler = function(element, event, listener) {
+			element.addEventListener(event, listener, false);
+		};
+	} else if (tddjs.isHostMethod(document, "attachEvent")) {
+		_addEventHandler = function(element, event, listener) {
+			element.attachEvent("on" + event, function() {
+				var event = normalizeEvent(window.event);
+				listener.call(element, event);
+				return event.returnValue;
+			});
+		};
+	} else {
+		return;
+	}
+	dom.addEventHandler = _addEventHandler;
 }());
 
 tddjs.isOwnProperty = (function() {
